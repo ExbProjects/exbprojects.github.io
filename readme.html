@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exb Projects</title>
+    <style>
+        /* Estilos generales (Estética Oscura/Tech) */
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --neon-blue: #3b82f6;
+            --neon-green: #10b981;
+            --neon-red: #ef4444;
+            --text-light: #f8fafc;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px 40px 20px;
+            background: linear-gradient(180deg, #1e1b4b 0%, var(--bg-dark) 100%);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: var(--text-light);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin: 15px 0 30px 0;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--neon-blue);
+            color: white;
+            padding: 15px 30px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            transition: all 0.4s ease-in-out;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+
+        .sobre-mi-hero {
+            max-width: 650px;
+            margin: 40px auto 0 auto;
+            background-color: rgba(30, 41, 59, 0.5);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .sobre-mi-hero h3 {
+            margin-top: 0;
+            color: var(--neon-blue);
+            font-size: 1.3rem;
+            text-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+        }
+
+        .sobre-mi-hero p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            border-left: 5px solid var(--neon-blue);
+            padding-left: 15px;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .video-showcase {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .video-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tab-btn {
+            background-color: #0f172a;
+            border: 1px solid #475569;
+            color: #94a3b8;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        .tab-btn.active-before {
+            border-color: var(--neon-red);
+            color: var(--neon-red);
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+        }
+
+        .tab-btn.active-after {
+            border-color: var(--neon-green);
+            color: var(--neon-green);
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+        }
+
+        .video-container {
+            width: 100%;
+            height: 300px;
+            background-color: #0f172a;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            border: 1px dashed #475569;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-desc {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            min-height: 45px;
+        }
+
+        .retro-container {
+            background: linear-gradient(135deg, var(--bg-card) 0%, #111827 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #4338ca;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .pendrives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .pendrive-card {
+            background-color: #0f172a;
+            border: 1px solid #312e81;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .pendrive-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-blue);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .pendrive-capacity {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--neon-blue);
+            margin-bottom: 10px;
+        }
+
+        .pendrive-img-slot {
+            width: 100%;
+            height: 140px;
+            background-color: #1e293b;
+            border-radius: 6px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #475569;
+            overflow: hidden;
+        }
+
+        .pendrive-img-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pendrive-details {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            min-height: 55px;
+            margin-bottom: 15px;
+        }
+
+        .pendrive-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--neon-green);
+        }
+
+        .retro-explanation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+            border-top: 1px solid #312e81;
+            padding-top: 30px;
+        }
+
+        .retro-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .retro-text p, .retro-text ul {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .retro-text ul {
+            padding-left: 20px;
+        }
+
+        .retro-text ul li {
+            margin-bottom: 8px;
+        }
+
+        .retro-video-slot {
+            flex: 1;
+            min-width: 280px;
+            height: 220px;
+            background-color: #0f172a;
+            border-radius: 8px;
+            border: 1px dashed #475569;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .warning-box {
+            background-color: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--neon-red);
+            color: #fca5a5;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin: 25px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .btn-download {
+            background-color: #4f46e5;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: #4338ca;
+        }
+
+        .calc-card {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            background-color: #0f172a;
+            color: white;
+            border: 1px solid #475569;
+            font-size: 1rem;
+        }
+
+        .total-box {
+            background-color: #0f172a;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 25px;
+            border: 1px solid var(--neon-green);
+        }
+
+        .total-box h3 {
+            margin: 0 0 10px 0;
+            color: var(--neon-green);
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--neon-green);
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: #020617;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Exb Projects</h1>
+        <p class="subtitle">Servicio Técnico de PC, Notebooks, Consolas, Mandos y Emulación en San Vicente</p>
+        
+        <a href="#cotizador" class="btn-cta">COTIZÁ TU REPARACIÓN</a>
+
+        <div class="sobre-mi-hero">
+            <h3>¿Quién está detrás de Exb Projects?</h3>
+            <p>
+                ¡Hola! Soy Elías. Me apasiona el servicio técnico de PC, la restauración de consolas y la emulación retro. 
+                Fundé este taller en San Vicente para ofrecer soluciones reales y definitivas a los problemas más comunes de tus equipos, 
+                ya sea armando y optimizando tu PC, o reparando el maldito drift usando sensores magnéticos (Hall Effect). 
+                Acá trabajo con transparencia, repuestos de calidad y la precisión que un verdadero usuario exige.
+            </p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- PORTAFOLIO ANTES/DESPUÉS -->
+        <section id="portafolio">
+            <h2>Prueba de Precisión (Antes / Después)</h2>
+            <div class="video-showcase">
+                <div class="video-tabs">
+                    <button class="tab-btn active-before" id="btn-before" onclick="mostrarVideo('antes')">❌ CONTROL CON DRIFT</button>
+                    <button class="tab-btn" id="btn-after" onclick="mostrarVideo('despues')">✔ CON HALL EFFECT</button>
+                </div>
+
+                <div class="video-container" id="video-container-main">
+                    <!-- Ejemplo de cómo insertar el video:
+                         Descomentá la etiqueta de abajo y poné el nombre de tu archivo mp4 -->
+                    
+                    <!-- <video src="Drift.mp4" id="video-player" controls autoplay muted loop style="width: 100%; height: 100%; object-fit: cover;"></video> -->
+                    
+                    <span class="video-placeholder-text" id="video-placeholder" style="color: var(--neon-red); font-weight: bold;">
+                        [ Video de 15s de Gamepad Tester con Drift ]
+                    </span>
+                </div>
+
+                <p class="video-desc" id="video-description">
+                    Analógico original desgastado por rozamiento físico de carbón. El cursor tiembla en el eje y genera movimientos "fantasma" en el juego.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN RETROBAT -->
+        <section id="retrobat">
+            <h2>RetroBat: Tu Infancia en un Pendrive</h2>
+            <div class="retro-container">
+                
+                <div class="pendrives-grid">
+                    <!-- Tarjeta 32 GB -->
+                    <div class="pendrive-card">
+                        <div class="pendrive-capacity">32 GB</div>
+                        <div class="pendrive-img-slot">
+                            <img src="pendrive32.png" alt="Pendrive 32GB">
+                        </div>
+                        <div class="pendrive-details">
+                            Consolas clásicas retro: Family, Sega Mega Drive, NES, SNES, PS1, MAME y más.
+                        </div>
+                        <div class="pendrive-price">$35.000</div>
+                    </div>
+
+                    <!-- Tarjeta 64 GB -->
+                    <div class="pendrive-card">
+                        <div class="pendrive-capacity">64 GB</div>
+                        <div class="pendrive-img-slot">
+                            <img src="pendrive64.png" alt="Pendrive 64GB">
+                        </div>
+                        <div class="pendrive-details">
+                            Toda la base clásica + Selección destacada de PS2, Dreamcast y GameCube.
+                        </div>
+                        <div class="pendrive-price">$55.000</div>
+                    </div>
+
+                    <!-- Tarjeta 128 GB -->
+                    <div class="pendrive-card">
+                        <div class="pendrive-capacity">128 GB</div>
+                        <div class="pendrive-img-slot">
+                            <img src="pendrive128.png" alt="Pendrive 128GB">
+                        </div>
+                        <div class="pendrive-details">
+                            Catálogo extendido: Sagas de PS2, Wii (Mario Galaxy, Mario Kart), Sega Saturn y 3DS.
+                        </div>
+                        <div class="pendrive-price">$75.000</div>
+                    </div>
+                </div>
+
+                <div class="retro-explanation">
+                    <div class="retro-text">
+                        <h3>¿Cómo funciona el sistema?</h3>
+                        <p>
+                            <strong>RetroBat</strong> es un entorno gráfico espectacular que organiza todos tus emuladores y juegos en un solo lugar. Es un sistema 100% portable que funciona desde el pendrive:
+                        </p>
+                        <ul>
+                            <li><strong>Enchufás y jugás:</strong> No interfiere con tu Windows, tus archivos, ni requiere instalaciones molestas.</li>
+                            <li><strong>Compatibilidad total:</strong> Configuramos cualquier mando que le conectes.</li>
+                            <li><strong>A tu medida:</strong> Podés elegir los juegos a elección, añadir títulos nuevos o sacar los que no juegues. ¡El catálogo es 100% personalizable!</li>
+                        </ul>
+                    </div>
+
+                    <div class="retro-video-slot">
+                        <video src="Retrobat.mp4" controls autoplay muted loop style="width: 100%; height: 100%; object-fit: cover;"></video>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    ⚠️ IMPORTANTE: El servicio incluye el Pendrive configurado con el sistema y los juegos listos. No incluye joysticks ni mandos adicionales.
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="#" class="btn-download">📥 Descargar Guía de Funcionamiento (PDF)</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- COTIZADOR AUTOMÁTICO -->
+        <section id="cotizador">
+            <h2>Presupuesto Express</h2>
+            <div class="calc-card">
+                <div class="form-group">
+                    <label for="dispositivo">1. ¿Qué equipo necesitás reparar?</label>
+                    <select id="dispositivo" onchange="actualizarServicios()">
+                        <option value="pc">PC de Escritorio</option>
+                        <option value="notebook">Notebook</option>
+                        <option value="ps3_ps4">Consola PS3 / PS4</option>
+                        <option value="ps2">Consola PS2</option>
+                        <option value="xbox360">Consola Xbox 360</option>
+                        <option value="switch">Consola Nintendo Switch</option>
+                        <option value="mandos">Mandos / Joysticks (PS4, Xbox, etc.)</option>
+                        <option value="celulares">Celulares (Pantallas / Baterías)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="servicio">2. ¿Qué trabajo querés hacerle?</label>
+                    <select id="servicio" onchange="calcularPresupuesto()">
+                        <!-- Las opciones se cargan dinámicamente -->
+                    </select>
+                </div>
+
+                <div class="total-box">
+                    <h3>Presupuesto Estimado</h3>
+                    <div class="price" id="precio-total">$0</div>
+                    <p style="color: #ef4444; font-size: 0.9rem; margin-top: 10px; font-weight: bold; text-align: left; padding: 0 10px;">
+                        *IMPORTANTE: Los precios indicados corresponden EXCLUSIVAMENTE a la mano de obra. Los componentes o repuestos (pantallas, baterías, SSD, potenciómetros, etc.) se cotizan por separado y se abonan por adelantado.
+                    </p>
+                    <a href="#" id="link-whatsapp" target="_blank" class="btn-whatsapp">💬 Confirmar Turno por WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Puntos de encuentro y entregas coordinadas en San Vicente, Buenos Aires.</p>
+        <p>&copy; 2026 Exb Projects - Hecho por un gamer, para gamers.</p>
+    </footer>
+
+    <script>
+        function mostrarVideo(tipo) {
+            const placeholder = document.getElementById("video-placeholder");
+            const description = document.getElementById("video-description");
+            const btnBefore = document.getElementById("btn-before");
+            const btnAfter = document.getElementById("btn-after");
+            // const videoPlayer = document.getElementById("video-player"); // Descomentar cuando uses la etiqueta <video> real
+
+            if (tipo === 'antes') {
+                btnBefore.classList.add("active-before");
+                btnAfter.classList.remove("active-after");
+                if (placeholder) {
+                    placeholder.textContent = "[ Video de 15s de Gamepad Tester con Drift ]";
+                    placeholder.style.color = "var(--neon-red)";
+                }
+                // videoPlayer.src = "tu-video-antes.mp4"; // Actualizar ruta
+                description.innerHTML = "Analógico original desgastado por rozamiento físico de carbón. El cursor tiembla en el eje y genera movimientos 'fantasma' en el juego.";
+            } else {
+                btnBefore.classList.remove("active-before");
+                btnAfter.classList.add("active-after");
+                if (placeholder) {
+                    placeholder.textContent = "[ Video de 15s de Control con Hall Effect ]";
+                    placeholder.style.color = "var(--neon-green)";
+                }
+                // videoPlayer.src = "tu-video-despues.mp4"; // Actualizar ruta
+                description.innerHTML = "Sensor <strong>Hall Effect magnético</strong> instalado. Sin rozamiento mecánico, calibrado perfecto al 0.0% de error en el centro. ¡Precisión eterna!";
+            }
+        }
+
+        const opcionesServicios = {
+            pc: [
+                { nombre: "Limpieza profunda + Cambio de Pasta Térmica", precio: "25.000 a 30.000" },
+                { nombre: "Formateo + Instalación de OS (Win + Office + Drivers + Optimizaciones)", precio: "15.000" },
+                { nombre: "Combo Optimizador (Formateo + Backup + Instalación de SSD)", precio: "35.000" }
+            ],
+            notebook: [
+                { nombre: "Limpieza profunda + Cambio de Pasta Térmica", precio: "25.000 a 32.500" },
+                { nombre: "Formateo + Instalación de OS (Win + Office + Drivers + Optimizaciones)", precio: "15.000" },
+                { nombre: "Combo Optimizador (Formateo + Backup + Instalación de SSD)", precio: "35.000" },
+                { nombre: "Cambio de Pantalla (Display) o Teclado", precio: "15.000 a 20.000" }
+            ],
+            ps3_ps4: [
+                { nombre: "Mantenimiento Full (Limpieza + Pasta Térmica)", precio: "25.000" },
+                { nombre: "Chipeo / Hackeo (HEN / CFW / Jailbreak)", precio: "15.000 a 18.000" },
+                { nombre: "Combo Explosivo (Limpieza Full + Pasta + Chipeo)", precio: "35.000 a 40.000" },
+                { nombre: "Cambio de Membranas / Botones / Batería", precio: "8.000 a 10.000" }
+            ],
+            ps2: [
+                { nombre: "Chipeo por Software (FreeMcBoot)", precio: "15.000" },
+                { nombre: "Mantenimiento preventivo", precio: "15.000" }
+            ],
+            xbox360: [
+                { nombre: "Limpieza y Cambio de Pasta Térmica", precio: "20.000 a 25.000" }
+            ],
+            switch: [
+                { nombre: "Chipeo V1 (Software/RCM)", precio: "25.000 a 30.000" }
+            ],
+            mandos: [
+                { nombre: "Cambio de analógico con Drift (por stick)", precio: "15.000 a 22.000" },
+                { nombre: "Cambio de Membranas / Botones / Batería (PS4, Xbox, PS3)", precio: "8.000 a 10.000" }
+            ],
+            celulares: [
+                { nombre: "Cambio de Módulo de Pantalla", precio: "15.000 a 25.000" },
+                { nombre: "Cambio de Batería interna", precio: "15.000 a 20.000" }
+            ]
+        };
+
+        const dispSelect = document.getElementById("dispositivo");
+        const servSelect = document.getElementById("servicio");
+        const precioTxt = document.getElementById("precio-total");
+        const wsLink = document.getElementById("link-whatsapp");
+
+        function actualizarServicios() {
+            const dispositivo = dispSelect.value;
+            const servicios = opcionesServicios[dispositivo];
+            
+            servSelect.innerHTML = "";
+            servicios.forEach((serv, index) => {
+                const opt = document.createElement("option");
+                opt.value = index;
+                opt.textContent = `${serv.nombre} - $${serv.precio}`;
+                servSelect.appendChild(opt);
+            });
+            
+            calcularPresupuesto();
+        }
+
+        function calcularPresupuesto() {
+            const dispositivo = dispSelect.value;
+            const servicioIndex = servSelect.value;
+            
+            if (servicioIndex === "" || !opcionesServicios[dispositivo]) return;
+
+            const servicioSeleccionado = opcionesServicios[dispositivo][servicioIndex];
+            const precio = servicioSeleccionado.precio;
+            
+            precioTxt.textContent = `$${precio}`;
+
+            const nombreDispositivo = dispSelect.options[dispSelect.selectedIndex].text;
+            const nombreServicio = servicioSeleccionado.nombre;
+            const nroTelefono = "1127204632";
+            
+            const mensaje = encodeURIComponent(
+                `¡Hola! Vi tu web y me gustaría coordinar un turno.\n\n` +
+                `*Equipo:* ${nombreDispositivo}\n` +
+                `*Trabajo:* ${nombreServicio}\n` +
+                `*Mano de obra aprox:* $${precio}\n\n` +
+                `Quedo atento para saber el costo de los repuestos si corresponden.`
+            );
+
+            wsLink.href = `https://wa.me/${nroTelefono}?text=${mensaje}`;
+        }
+
+        actualizarServicios();
+    </script>
+</body>
+</html>
