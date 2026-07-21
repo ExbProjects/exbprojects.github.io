@@ -27,46 +27,78 @@
             padding: 0;
         }
 
-        header {
-            text-align: center;
-            padding: 80px 20px 40px 20px;
-            background: linear-gradient(180deg, #1e1b4b 0%, var(--bg-dark) 100%);
+        /* BARRA SUPERIOR FIJA (NAVBAR) */
+        .top-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #020617;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1e293b;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
 
-        h1 {
-            font-size: 3rem;
-            margin: 0;
-            color: var(--text-light);
-            text-shadow: 0 0 10px var(--neon-blue);
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 1px;
         }
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            margin: 15px 0 30px 0;
+        .logo-text span {
+            color: var(--neon-red); /* La X en Rojo */
         }
 
-        .btn-cta {
-            display: inline-block;
+        .nav-cotizador-btn {
             background-color: var(--neon-blue);
             color: white;
-            padding: 15px 30px;
+            padding: 8px 18px;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-            transition: all 0.4s ease-in-out;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+            transition: 0.3s;
         }
 
-        .btn-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        .nav-cotizador-btn:hover {
+            transform: scale(1.05);
+            background-color: #2563eb;
+        }
+
+        /* BANNER CON IMAGEN DE FONDO */
+        .hero-banner {
+            position: relative;
+            /* REEMPLAZÁ 'banner-bg.jpg' POR EL NOMBRE DE TU IMAGEN DE BANNER */
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, var(--bg-dark) 100%), url('banner-bg.jpg') center/cover no-repeat;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid #334155;
+        }
+
+        .hero-banner h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            color: var(--text-light);
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+        }
+
+        .hero-banner p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 650px;
+            margin: 15px auto 0 auto;
+            line-height: 1.6;
         }
 
         .sobre-mi-hero {
             max-width: 650px;
             margin: 40px auto 0 auto;
-            background-color: rgba(30, 41, 59, 0.5);
+            background-color: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(5px);
             border: 1px solid #334155;
             border-radius: 12px;
             padding: 25px;
@@ -103,6 +135,59 @@
             padding-left: 15px;
             margin-bottom: 30px;
             font-size: 1.8rem;
+        }
+
+        /* GRID NUESTROS SERVICIOS */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-blue);
+        }
+
+        .service-img-slot {
+            width: 100%;
+            height: 130px;
+            background-color: #0f172a;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            border: 1px dashed #475569;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-img-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-card h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.1rem;
+            color: var(--neon-blue);
+        }
+
+        .service-card p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin: 0;
+            line-height: 1.4;
         }
 
         .video-showcase {
@@ -362,22 +447,137 @@
             box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
         }
 
+        /* GRID DE RESEÑAS */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background-color: var(--bg-card);
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .review-user {
+            font-weight: bold;
+            color: var(--text-light);
+        }
+
+        .review-stars {
+            color: #f59e0b;
+        }
+
+        .review-text {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0 0 10px 0;
+        }
+
+        .review-tag {
+            display: inline-block;
+            background-color: #0f172a;
+            color: var(--neon-blue);
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #334155;
+        }
+
+        /* SECCIÓN CONTACTO DIRECTO */
+        .contacto-container {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 35px;
+            text-align: center;
+            border: 1px solid #334155;
+        }
+
+        .contacto-container h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .contacto-container p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .btn-whatsapp-large {
+            background-color: #25d366;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .btn-whatsapp-large:hover {
+            transform: scale(1.05);
+        }
+
+        /* FOOTER Y REDES SOCIALES */
         footer {
             text-align: center;
             padding: 40px;
             background-color: #020617;
             color: #64748b;
             font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-btn {
+            background-color: #1e293b;
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            border-color: var(--neon-blue);
+            color: var(--neon-blue);
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Exb Projects</h1>
-        <p class="subtitle">Servicio Técnico de PC, Notebooks, Consolas, Mandos y Emulación en San Vicente</p>
-        
-        <a href="#cotizador" class="btn-cta">COTIZÁ TU REPARACIÓN</a>
+    <!-- 1. BARRA SUPERIOR CON LOGO Y BOTÓN COTIZADOR -->
+    <div class="top-bar">
+        <div class="logo-text">E<span>X</span>B Projects</div>
+        <a href="#cotizador" class="nav-cotizador-btn">COTIZADOR</a>
+    </div>
+
+    <!-- 2. BANNER DE SERVICIO TÉCNICO -->
+    <header class="hero-banner">
+        <h1>Servicio Técnico E<span>X</span>B</h1>
+        <p>Soluciones profesionales en Mantenimiento, Reparaciones, Optimización de PC y Sistemas de Emulación en San Vicente.</p>
 
         <div class="sobre-mi-hero">
             <h3>¿Quién está detrás de Exb Projects?</h3>
@@ -392,7 +592,55 @@
 
     <div class="container">
 
-        <!-- PORTAFOLIO ANTES/DESPUÉS -->
+        <!-- 3. NUESTROS SERVICIOS -->
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-grid">
+                
+                <!-- Tarjeta 1: Mantenimiento -->
+                <div class="service-card">
+                    <div class="service-img-slot">
+                        <!-- Poné tu foto abajo cambiando el src -->
+                        <img src="mantenimiento.jpg" alt="Mantenimiento Preventivo" onerror="this.style.display='none'">
+                    </div>
+                    <h3>Mantenimiento</h3>
+                    <p>Limpieza profunda y cambio de pasta térmica en PCs, Notebooks y Consolas.</p>
+                </div>
+
+                <!-- Tarjeta 2: Reparaciones -->
+                <div class="service-card">
+                    <div class="service-img-slot">
+                        <!-- Poné tu foto abajo cambiando el src -->
+                        <img src="reparaciones.jpg" alt="Reparación de Mandos" onerror="this.style.display='none'">
+                    </div>
+                    <h3>Reparaciones</h3>
+                    <p>Cambio de módulos analógicos (Hall Effect anti-drift), botones y pantallas.</p>
+                </div>
+
+                <!-- Tarjeta 3: Emulaciones -->
+                <div class="service-card">
+                    <div class="service-img-slot">
+                        <!-- Poné tu foto abajo cambiando el src -->
+                        <img src="emulaciones.jpg" alt="Sistemas de Emulación" onerror="this.style.display='none'">
+                    </div>
+                    <h3>Emulaciones</h3>
+                    <p>Sistemas RetroBat portables listos para jugar en pendrives o discos.</p>
+                </div>
+
+                <!-- Tarjeta 4: Optimizaciones -->
+                <div class="service-card">
+                    <div class="service-img-slot">
+                        <!-- Poné tu foto abajo cambiando el src -->
+                        <img src="optimizaciones.jpg" alt="Optimización de PC" onerror="this.style.display='none'">
+                    </div>
+                    <h3>Optimizaciones</h3>
+                    <p>Formateo, instalación de SSD, backup y puesta a punto de Windows.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. PORTAFOLIO ANTES/DESPUÉS -->
         <section id="portafolio">
             <h2>Prueba de Precisión (Antes / Después)</h2>
             <div class="video-showcase">
@@ -402,11 +650,6 @@
                 </div>
 
                 <div class="video-container" id="video-container-main">
-                    <!-- Ejemplo de cómo insertar el video:
-                         Descomentá la etiqueta de abajo y poné el nombre de tu archivo mp4 -->
-                    
-                    <!-- <video src="Drift.mp4" id="video-player" controls autoplay muted loop style="width: 100%; height: 100%; object-fit: cover;"></video> -->
-                    
                     <span class="video-placeholder-text" id="video-placeholder" style="color: var(--neon-red); font-weight: bold;">
                         [ Video de 15s de Gamepad Tester con Drift ]
                     </span>
@@ -418,13 +661,12 @@
             </div>
         </section>
 
-        <!-- SECCIÓN RETROBAT -->
+        <!-- 5. SECCIÓN RETROBAT -->
         <section id="retrobat">
             <h2>RetroBat: Tu Infancia en un Pendrive</h2>
             <div class="retro-container">
                 
                 <div class="pendrives-grid">
-                    <!-- Tarjeta 32 GB -->
                     <div class="pendrive-card">
                         <div class="pendrive-capacity">32 GB</div>
                         <div class="pendrive-img-slot">
@@ -436,7 +678,6 @@
                         <div class="pendrive-price">$35.000</div>
                     </div>
 
-                    <!-- Tarjeta 64 GB -->
                     <div class="pendrive-card">
                         <div class="pendrive-capacity">64 GB</div>
                         <div class="pendrive-img-slot">
@@ -448,7 +689,6 @@
                         <div class="pendrive-price">$55.000</div>
                     </div>
 
-                    <!-- Tarjeta 128 GB -->
                     <div class="pendrive-card">
                         <div class="pendrive-capacity">128 GB</div>
                         <div class="pendrive-img-slot">
@@ -489,7 +729,7 @@
             </div>
         </section>
 
-        <!-- COTIZADOR AUTOMÁTICO -->
+        <!-- 6. COTIZADOR AUTOMÁTICO -->
         <section id="cotizador">
             <h2>Presupuesto Express</h2>
             <div class="calc-card">
@@ -510,7 +750,6 @@
                 <div class="form-group">
                     <label for="servicio">2. ¿Qué trabajo querés hacerle?</label>
                     <select id="servicio" onchange="calcularPresupuesto()">
-                        <!-- Las opciones se cargan dinámicamente -->
                     </select>
                 </div>
 
@@ -525,11 +764,63 @@
             </div>
         </section>
 
+        <!-- 7. RESEÑAS DE CLIENTES -->
+        <section id="resenas">
+            <h2>Opiniones de Clientes</h2>
+            <div class="reviews-grid">
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-user">Lucas G.</span>
+                        <span class="review-stars">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="review-text">"Le cambió los analógicos a mi joystick de PS4 por unos Hall Effect. Chau drift para siempre, quedó una seda."</p>
+                    <span class="review-tag">Reparación de Joystick</span>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-user">Matías R.</span>
+                        <span class="review-stars">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="review-text">"La notebook levantaba mucha temperatura jugando. Se le hizo mantenimiento completo y volvió a volar."</p>
+                    <span class="review-tag">Mantenimiento de PC</span>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-user">Nicolás M.</span>
+                        <span class="review-stars">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="review-text">"Compré el pendrive de 64GB con RetroBat. Enchufar y jugar directo, genial para recordar viejos tiempos."</p>
+                    <span class="review-tag">Sistema RetroBat</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 8. CONTACTO DIRECTO POR WHATSAPP -->
+        <section id="contacto">
+            <div class="contacto-container">
+                <h3>¿Tenés dudas o querés hacer una consulta directa?</h3>
+                <p>Escribime por WhatsApp para asesoramiento personalizado o pedir un diagnóstico.</p>
+                <a href="https://wa.me/+541127204632?text=¡Hola!%20Quisiera%20hacer%20una%20consulta%20técnica." target="_blank" class="btn-whatsapp-large">
+                    💬 Contactar por WhatsApp Directo
+                </a>
+            </div>
+        </section>
+
     </div>
 
+    <!-- 9. PIE DE PÁGINA Y REDES SOCIALES -->
     <footer>
         <p>Puntos de encuentro y entregas coordinadas en San Vicente, Buenos Aires.</p>
         <p>&copy; 2026 Exb Projects - Hecho por un gamer, para gamers.</p>
+        
+        <div class="social-links">
+            <a href="https://instagram.com/TU_USUARIO" target="_blank" class="social-btn">📷 Instagram</a>
+            <a href="https://github.com/TU_USUARIO" target="_blank" class="social-btn">💻 GitHub</a>
+        </div>
     </footer>
 
     <script>
@@ -538,7 +829,6 @@
             const description = document.getElementById("video-description");
             const btnBefore = document.getElementById("btn-before");
             const btnAfter = document.getElementById("btn-after");
-            // const videoPlayer = document.getElementById("video-player"); // Descomentar cuando uses la etiqueta <video> real
 
             if (tipo === 'antes') {
                 btnBefore.classList.add("active-before");
@@ -547,7 +837,6 @@
                     placeholder.textContent = "[ Video de 15s de Gamepad Tester con Drift ]";
                     placeholder.style.color = "var(--neon-red)";
                 }
-                // videoPlayer.src = "tu-video-antes.mp4"; // Actualizar ruta
                 description.innerHTML = "Analógico original desgastado por rozamiento físico de carbón. El cursor tiembla en el eje y genera movimientos 'fantasma' en el juego.";
             } else {
                 btnBefore.classList.remove("active-before");
@@ -556,7 +845,6 @@
                     placeholder.textContent = "[ Video de 15s de Control con Hall Effect ]";
                     placeholder.style.color = "var(--neon-green)";
                 }
-                // videoPlayer.src = "tu-video-despues.mp4"; // Actualizar ruta
                 description.innerHTML = "Sensor <strong>Hall Effect magnético</strong> instalado. Sin rozamiento mecánico, calibrado perfecto al 0.0% de error en el centro. ¡Precisión eterna!";
             }
         }
@@ -632,7 +920,7 @@
 
             const nombreDispositivo = dispSelect.options[dispSelect.selectedIndex].text;
             const nombreServicio = servicioSeleccionado.nombre;
-            const nroTelefono = "1127204632";
+            const nroTelefono = "+541127204632";
             
             const mensaje = encodeURIComponent(
                 `¡Hola! Vi tu web y me gustaría coordinar un turno.\n\n` +
