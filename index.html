@@ -140,17 +140,20 @@
         /* GRID NUESTROS SERVICIOS */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr; /* Una tarjeta por fila */
+            gap: 30px; /* Más espacio entre filas */
         }
 
         .service-card {
             background-color: var(--bg-card);
             border: 1px solid #334155;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            transition: transform 0.3s ease;
+            border-radius: 12px; /* Bordes un poco más redondeados */
+            padding: 20px; /* Más padding interno */
+            text-align: left; /* Alineación a la izquierda */
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex; /* Diseño flexbox */
+            align-items: center; /* Centrado vertical de imagen y texto */
+            gap: 25px; /* Espacio entre imagen y texto */
         }
 
         .service-card:hover {
@@ -159,16 +162,16 @@
         }
 
         .service-img-slot {
-            width: 100%;
-            height: 130px;
+            width: 300px; /* Ancho fijo más grande para la imagen */
+            height: 200px; /* Alto fijo más grande para la imagen */
             background-color: #0f172a;
-            border-radius: 6px;
-            margin-bottom: 12px;
+            border-radius: 10px; /* Bordes imagen más redondeados */
             border: 1px dashed #475569;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0; /* Evita que la imagen se encoja */
         }
 
         .service-img-slot img {
@@ -178,16 +181,16 @@
         }
 
         .service-card h3 {
-            margin: 10px 0 5px 0;
-            font-size: 1.1rem;
+            margin: 0 0 10px 0; /* Margen inferior para separar del texto */
+            font-size: 1.4rem; /* Título un poco más grande */
             color: var(--neon-blue);
         }
 
         .service-card p {
-            font-size: 0.85rem;
+            font-size: 1rem; /* Texto un poco más grande */
             color: #94a3b8;
             margin: 0;
-            line-height: 1.4;
+            line-height: 1.5; /* Mejor legibilidad */
         }
 
         .video-showcase {
@@ -447,54 +450,6 @@
             box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
         }
 
-        /* GRID DE RESEÑAS */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .review-card {
-            background-color: var(--bg-card);
-            border: 1px solid #334155;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .review-user {
-            font-weight: bold;
-            color: var(--text-light);
-        }
-
-        .review-stars {
-            color: #f59e0b;
-        }
-
-        .review-text {
-            color: #cbd5e1;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin: 0 0 10px 0;
-        }
-
-        .review-tag {
-            display: inline-block;
-            background-color: #0f172a;
-            color: var(--neon-blue);
-            font-size: 0.75rem;
-            padding: 4px 8px;
-            border-radius: 4px;
-            border: 1px solid #334155;
-        }
-
         /* SECCIÓN CONTACTO DIRECTO */
         .contacto-container {
             background-color: var(--bg-card);
@@ -603,8 +558,10 @@
                         <!-- Poné tu foto abajo cambiando el src -->
                         <img src="mantenimiento.jpg" alt="Mantenimiento Preventivo" onerror="this.style.display='none'">
                     </div>
-                    <h3>Mantenimiento</h3>
-                    <p>Limpieza profunda y cambio de pasta térmica en PCs, Notebooks y Consolas.</p>
+                    <div>
+                        <h3>Mantenimiento</h3>
+                        <p>Limpieza profunda y cambio de pasta térmica en PCs, Notebooks y Consolas. Alarga la vida útil de tus equipos evitando sobrecalentamientos.</p>
+                    </div>
                 </div>
 
                 <!-- Tarjeta 2: Reparaciones -->
@@ -613,8 +570,10 @@
                         <!-- Poné tu foto abajo cambiando el src -->
                         <img src="reparaciones.jpg" alt="Reparación de Mandos" onerror="this.style.display='none'">
                     </div>
-                    <h3>Reparaciones</h3>
-                    <p>Cambio de módulos analógicos (Hall Effect anti-drift), botones y pantallas.</p>
+                    <div>
+                        <h3>Reparaciones</h3>
+                        <p>Cambio de módulos analógicos (Hall Effect anti-drift), botones, pantallas y diagnóstico de fallas. Devolvemos la funcionalidad a tus dispositivos.</p>
+                    </div>
                 </div>
 
                 <!-- Tarjeta 3: Emulaciones -->
@@ -623,8 +582,10 @@
                         <!-- Poné tu foto abajo cambiando el src -->
                         <img src="RetrobatPng.png" alt="Sistemas de Emulación" onerror="this.style.display='none'">
                     </div>
-                    <h3>Emulaciones</h3>
-                    <p>Sistemas RetroBat portables listos para jugar en pendrives o discos.</p>
+                    <div>
+                        <h3>Emulaciones</h3>
+                        <p>Sistemas RetroBat portables listos para jugar en pendrives o discos. Revive los clásicos de siempre en cualquier PC.</p>
+                    </div>
                 </div>
 
                 <!-- Tarjeta 4: Optimizaciones -->
@@ -633,8 +594,10 @@
                         <!-- Poné tu foto abajo cambiando el src -->
                         <img src="Optios.png" alt="Optimización de PC" onerror="this.style.display='none'">
                     </div>
-                    <h3>Optimizaciones</h3>
-                    <p>Formateo, instalación de SSD, backup y puesta a punto de Windows.</p>
+                    <div>
+                        <h3>Optimizaciones</h3>
+                        <p>Formateo, instalación de SSD, backup y puesta a punto de Windows. Acelera tu PC y mejora tu experiencia de usuario.</p>
+                    </div>
                 </div>
 
             </div>
@@ -744,40 +707,7 @@
             </div>
         </section>
 
-        <!-- 7. RESEÑAS DE CLIENTES -->
-        <section id="resenas">
-            <h2>Opiniones de Clientes</h2>
-            <div class="reviews-grid">
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <span class="review-user">Lucas G.</span>
-                        <span class="review-stars">⭐⭐⭐⭐⭐</span>
-                    </div>
-                    <p class="review-text">"Le cambió los analógicos a mi joystick de PS4 por unos Hall Effect. Chau drift para siempre, quedó una seda."</p>
-                    <span class="review-tag">Reparación de Joystick</span>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-header">
-                        <span class="review-user">Matías R.</span>
-                        <span class="review-stars">⭐⭐⭐⭐⭐</span>
-                    </div>
-                    <p class="review-text">"La notebook levantaba mucha temperatura jugando. Se le hizo mantenimiento completo y volvió a volar."</p>
-                    <span class="review-tag">Mantenimiento de PC</span>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-header">
-                        <span class="review-user">Nicolás M.</span>
-                        <span class="review-stars">⭐⭐⭐⭐⭐</span>
-                    </div>
-                    <p class="review-text">"Compré el pendrive de 64GB con RetroBat. Enchufar y jugar directo, genial para recordar viejos tiempos."</p>
-                    <span class="review-tag">Sistema RetroBat</span>
-                </div>
-
-            </div>
-        </section>
+        <!-- Se ha eliminado la sección de reseñas -->
 
         <!-- 8. CONTACTO DIRECTO POR WHATSAPP -->
         <section id="contacto">
@@ -877,12 +807,14 @@
             const servicios = opcionesServicios[dispositivo];
             
             servSelect.innerHTML = "";
-            servicios.forEach((serv, index) => {
-                const opt = document.createElement("option");
-                opt.value = index;
-                opt.textContent = `${serv.nombre} - $${serv.precio}`;
-                servSelect.appendChild(opt);
-            });
+            if (servicios) {
+                servicios.forEach((serv, index) => {
+                    const opt = document.createElement("option");
+                    opt.value = index;
+                    opt.textContent = `${serv.nombre} - $${serv.precio}`;
+                    servSelect.appendChild(opt);
+                });
+            }
             
             calcularPresupuesto();
         }
@@ -891,7 +823,11 @@
             const dispositivo = dispSelect.value;
             const servicioIndex = servSelect.value;
             
-            if (servicioIndex === "" || !opcionesServicios[dispositivo]) return;
+            if (servicioIndex === "" || !opcionesServicios[dispositivo] || !opcionesServicios[dispositivo][servicioIndex]) {
+                precioTxt.textContent = "$0";
+                wsLink.href = "#";
+                return;
+            }
 
             const servicioSeleccionado = opcionesServicios[dispositivo][servicioIndex];
             const precio = servicioSeleccionado.precio;
@@ -900,7 +836,7 @@
 
             const nombreDispositivo = dispSelect.options[dispSelect.selectedIndex].text;
             const nombreServicio = servicioSeleccionado.nombre;
-            const nroTelefono = "+541127204632";
+            const nroTelefono = "+541127204632"; // NÚMERO DE TELÉFONO DEL CONTACTO
             
             const mensaje = encodeURIComponent(
                 `¡Hola! Vi tu web y me gustaría coordinar un turno.\n\n` +
@@ -913,6 +849,7 @@
             wsLink.href = `https://wa.me/${nroTelefono}?text=${mensaje}`;
         }
 
+        // Inicializar servicios
         actualizarServicios();
     </script>
 </body>
