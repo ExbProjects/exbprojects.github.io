@@ -116,7 +116,25 @@
             color: #cbd5e1;
             font-size: 0.95rem;
             line-height: 1.6;
-            margin: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .btn-cotizador-hero {
+            display: inline-block;
+            background-color: var(--neon-blue);
+            color: white;
+            padding: 12px 24px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .btn-cotizador-hero:hover {
+            transform: scale(1.05);
+            background-color: #2563eb;
         }
 
         .container {
@@ -208,7 +226,6 @@
             margin-bottom: 35px;
         }
 
-        /* Tarjeta Clickeable */
         .pendrive-card {
             background-color: #0f172a;
             border: 1px solid #312e81;
@@ -236,6 +253,19 @@
             border-radius: 12px;
             margin-bottom: 8px;
             border: 1px solid rgba(59, 130, 246, 0.4);
+        }
+
+        .req-badge {
+            display: block;
+            background-color: rgba(16, 185, 129, 0.15);
+            color: var(--neon-green);
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 5px 8px;
+            border-radius: 6px;
+            margin-top: 10px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            text-align: center;
         }
 
         .pendrive-capacity {
@@ -347,7 +377,7 @@
             background-color: #4338ca;
         }
 
-        /* ESTILOS DEL MODAL (VENTANA EMERGENTE DE JUEGOS Y CONSOLAS) */
+        /* MODAL */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -503,6 +533,87 @@
             box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
         }
 
+        /* PREGUNTAS FRECUENTES (FAQ) */
+        .faq-item {
+            background-color: var(--bg-card);
+            border: 1px solid #334155;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 18px 20px;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: var(--neon-blue);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: #0f172a;
+            color: #cbd5e1;
+            padding: 0 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 15px 20px;
+            border-top: 1px solid #334155;
+        }
+
+        /* ZONA DE COBERTURA Y MEDIOS DE PAGO */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            background-color: var(--bg-card);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .info-card h3 {
+            color: var(--neon-blue);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        .info-card ul li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         /* CONTACTO */
         .contacto-container {
             background-color: var(--bg-card);
@@ -537,6 +648,32 @@
 
         .btn-whatsapp-large:hover {
             transform: scale(1.05);
+        }
+
+        /* BOTÓN FLOTANTE DE WHATSAPP */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+            z-index: 1500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
         }
 
         /* FOOTER */
@@ -595,6 +732,8 @@
                 ya sea armando y optimizando tu PC, o reparando el maldito drift usando sensores magnéticos (Hall Effect). 
                 Acá trabajo con transparencia, repuestos de calidad y la precisión que un verdadero usuario exige.
             </p>
+            <!-- BOTÓN AL COTIZADOR AÑADIDO AQUÍ -->
+            <a href="#cotizador" class="btn-cotizador-hero">🧮 Calcular Presupuesto en Cotizador</a>
         </div>
     </header>
 
@@ -648,7 +787,7 @@
             </div>
         </section>
 
-        <!-- 5. SECCIÓN RETROBAT CON TARJETAS INTERACTIVAS -->
+        <!-- 4. SECCIÓN RETROBAT CON TARJETAS INTERACTIVAS -->
         <section id="retrobat">
             <h2>RetroBat: Tu Infancia en un Pendrive</h2>
             <div class="retro-container">
@@ -670,6 +809,7 @@
                             Consolas clásicas retro: Family, Sega Mega Drive, NES, SNES, PS1, MAME arcade y más.
                         </div>
                         <div class="pendrive-price">$35.000</div>
+                        <span class="req-badge">⚙️ Corre en cualquier PC / Notebook antigua</span>
                     </div>
 
                     <!-- Pendrive 64 GB -->
@@ -683,6 +823,7 @@
                             Toda la base clásica de 32GB + Selección de PS2, Dreamcast, GameCube y PSP.
                         </div>
                         <div class="pendrive-price">$55.000</div>
+                        <span class="req-badge">⚙️ Req. recomendado: i3 / Ryzen 3 + 4GB RAM</span>
                     </div>
 
                     <!-- Pendrive 128 GB -->
@@ -696,6 +837,7 @@
                             Catálogo pesado completo: Sagas de PS2, Nintendo Wii (Mario Galaxy, Mario Kart), Sega Saturn y 3DS.
                         </div>
                         <div class="pendrive-price">$75.000</div>
+                        <span class="req-badge">⚙️ Req. recomendado: i5 / Ryzen 5 + Gráfica dedicada/buen integrado</span>
                     </div>
 
                 </div>
@@ -723,12 +865,13 @@
                 </div>
 
                 <div style="text-align: center;">
-                    <a href="#" class="btn-download">📥 Descargar Guía de Funcionamiento (PDF)</a>
+                    <!-- BOTÓN DE DESCARGA PDF VINCULADO AL ARCHIVO REAL -->
+                    <a href="Guia_RetroBat_Exb_Projects.pdf" download class="btn-download">📥 Descargar Guía de Funcionamiento y Controles (PDF)</a>
                 </div>
             </div>
         </section>
 
-        <!-- 6. COTIZADOR AUTOMÁTICO -->
+        <!-- 5. COTIZADOR AUTOMÁTICO -->
         <section id="cotizador">
             <h2>Presupuesto Express</h2>
             <div class="calc-card">
@@ -763,6 +906,78 @@
             </div>
         </section>
 
+        <!-- 6. PREGUNTAS FRECUENTES (FAQ) -->
+        <section id="faq">
+            <h2>Preguntas Frecuentes</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Cómo funcionan los presupuestos y repuestos?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    Los precios publicados o cotizados cubren la mano de obra del servicio. En caso de requerir repuestos (como módulos de pantalla, baterías o joysticks), estos se cotizan por separado según el valor actual del mercado y se abonan por adelantado antes de realizar el pedido del componente.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Cuánto tiempo demora la reparación de mi equipo?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    El tiempo estimado para mantenimientos de PC o consolas es de 24 a 48 horas hábiles. Para reparaciones que requieran repuestos específicos, el tiempo dependerá de la llegada del componente.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Los pendrives con RetroBat funcionan en cualquier PC?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    Sí, el pendrive de 32GB con juegos clásicos corre prácticamente en cualquier computadora o notebook antigua. Los pendrives de 64GB y 128GB que incluyen consolas 3D (PS2, GameCube, Wii) requieren una computadora con un procesador y gráficos de gama media para un rendimiento fluido.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Puedo pedir juegos específicos para los pendrives RetroBat?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    ¡Por supuesto! Al encargar tu pendrive podés enviarnos una lista con tus juegos favoritos para asegurarnos de que estén incluidos sin costo adicional.
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ZONA DE COBERTURA Y MEDIOS DE PAGO -->
+        <section id="cobertura-pagos">
+            <h2>Información de Servicio</h2>
+            <div class="info-grid">
+                
+                <div class="info-card">
+                    <h3>📍 Zona de Cobertura</h3>
+                    <ul>
+                        <li>📍 <strong>Ubicación base:</strong> San Vicente, Buenos Aires.</li>
+                        <li>🤝 <strong>Entregas:</strong> Retiro y entrega coordinada en taller / punto de encuentro en San Vicente.</li>
+                        <li>📦 <strong>Envíos:</strong> Consultar posibilidad de despachos según la localidad.</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>💳 Medios de Pago</h3>
+                    <ul>
+                        <li>💵 <strong>Efectivo</strong> en entregas presenciales.</li>
+                        <li>📱 <strong>Mercado Pago</strong> (Transferencia / CBU / Alias).</li>
+                        <li>💚 <strong>Cuenta DNI</strong> (Transferencias locales).</li>
+                        <li>🏦 <strong>Transferencia Bancaria</strong> directa.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
         <!-- 8. CONTACTO DIRECTO POR WHATSAPP -->
         <section id="contacto">
             <div class="contacto-container">
@@ -775,6 +990,11 @@
         </section>
 
     </div>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/+541127204632?text=¡Hola!%20Vengo%20desde%20la%20web%20de%20Exb%20Projects." class="whatsapp-float" target="_blank" title="Contactar por WhatsApp">
+        💬
+    </a>
 
     <!-- VENTANA EMERGENTE (MODAL) PARA MOSTRAR JUEGOS Y CONSOLAS -->
     <div class="modal-overlay" id="modal-pendrive" onclick="cerrarModalAfuera(event)">
@@ -873,98 +1093,81 @@
             }
         }
 
+        // CONTROL DE FAQ (ACORDEÓN)
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            item.classList.toggle('active');
+        }
+
         // COTIZADOR AUTOMÁTICO
         const opcionesServicios = {
             pc: [
                 { nombre: "Limpieza profunda + Cambio de Pasta Térmica", precio: "25.000 a 30.000" },
-                { nombre: "Formateo + Instalación de OS (Win + Office + Drivers + Optimizaciones)", precio: "15.000" },
-                { nombre: "Combo Optimizador (Formateo + Backup + Instalación de SSD)", precio: "35.000" }
+                { nombre: "Formateo + Instalación de Windows y Drivers", precio: "20.000" },
+                { nombre: "Instalación de SSD + Clonado / Sistema", precio: "25.000" },
+                { nombre: "Optimización completa para Gaming / Trabajo", precio: "18.000" }
             ],
             notebook: [
-                { nombre: "Limpieza profunda + Cambio de Pasta Térmica", precio: "25.000 a 32.500" },
-                { nombre: "Formateo + Instalación de OS (Win + Office + Drivers + Optimizaciones)", precio: "15.000" },
-                { nombre: "Combo Optimizador (Formateo + Backup + Instalación de SSD)", precio: "35.000" },
-                { nombre: "Cambio de Pantalla (Display) o Teclado", precio: "15.000 a 20.000" }
+                { nombre: "Limpieza profunda + Cambio de Pasta Térmica", precio: "28.000 a 35.000" },
+                { nombre: "Formateo + Instalación de Windows y Drivers", precio: "20.000" },
+                { nombre: "Cambio de SSD / Memoria RAM", precio: "18.000" }
             ],
             ps3_ps4: [
-                { nombre: "Mantenimiento Full (Limpieza + Pasta Térmica)", precio: "25.000" },
-                { nombre: "Chipeo / Hackeo (HEN / CFW / Jailbreak)", precio: "15.000 a 18.000" },
-                { nombre: "Combo Explosivo (Limpieza Full + Pasta + Chipeo)", precio: "35.000 a 40.000" },
-                { nombre: "Cambio de Membranas / Botones / Batería", precio: "8.000 a 10.000" }
+                { nombre: "Limpieza interna + Cambio de Pasta Térmica", precio: "30.000" },
+                { nombre: "Cambio de Disco Rígido / SSD", precio: "20.000" }
             ],
             ps2: [
-                { nombre: "Chipeo por Software (FreeMcBoot)", precio: "15.000" },
-                { nombre: "Mantenimiento preventivo", precio: "15.000" }
+                { nombre: "Mantenimiento general + Calibración de Láser", precio: "20.000" }
             ],
             xbox360: [
-                { nombre: "Limpieza y Cambio de Pasta Térmica", precio: "20.000 a 25.000" }
+                { nombre: "Limpieza interna + Cambio de Pasta Térmica", precio: "28.000" }
             ],
             switch: [
-                { nombre: "Chipeo V1 (Software/RCM)", precio: "25.000 a 30.000" }
+                { nombre: "Mantenimiento / Limpieza de coolers", precio: "32.000" },
+                { nombre: "Cambio de rieles de Joy-Con", precio: "18.000" }
             ],
             mandos: [
-                { nombre: "Cambio de analógico con Drift (por stick)", precio: "15.000 a 22.000" },
-                { nombre: "Cambio de Membranas / Botones / Batería (PS4, Xbox, PS3)", precio: "8.000 a 10.000" }
+                { nombre: "Cambio de Módulo Analógico Hall Effect (Anti-drift)", precio: "18.000 a 22.000" },
+                { nombre: "Mantenimiento / Cambio de gomas y botones", precio: "12.000" }
             ],
             celulares: [
-                { nombre: "Cambio de Módulo de Pantalla", precio: "15.000 a 25.000" },
-                { nombre: "Cambio de Batería interna", precio: "15.000 a 20.000" }
+                { nombre: "Cambio de Módulo de Pantalla (Mano de obra)", precio: "20.000" },
+                { nombre: "Cambio de Batería (Mano de obra)", precio: "15.000" }
             ]
         };
 
-        const dispSelect = document.getElementById("dispositivo");
-        const servSelect = document.getElementById("servicio");
-        const precioTxt = document.getElementById("precio-total");
-        const wsLink = document.getElementById("link-whatsapp");
-
         function actualizarServicios() {
-            const dispositivo = dispSelect.value;
-            const servicios = opcionesServicios[dispositivo];
-            
-            servSelect.innerHTML = "";
-            if (servicios) {
-                servicios.forEach((serv, index) => {
-                    const opt = document.createElement("option");
-                    opt.value = index;
-                    opt.textContent = `${serv.nombre} - $${serv.precio}`;
-                    servSelect.appendChild(opt);
+            const disp = document.getElementById('dispositivo').value;
+            const selectServicio = document.getElementById('servicio');
+            selectServicio.innerHTML = '';
+
+            if (opcionesServicios[disp]) {
+                opcionesServicios[disp].forEach(s => {
+                    const opt = document.createElement('option');
+                    opt.value = s.precio;
+                    opt.textContent = `${s.nombre} - $${s.precio}`;
+                    selectServicio.appendChild(opt);
                 });
             }
-            
             calcularPresupuesto();
         }
 
         function calcularPresupuesto() {
-            const dispositivo = dispSelect.value;
-            const servicioIndex = servSelect.value;
+            const selectServicio = document.getElementById('servicio');
+            const precioBox = document.getElementById('precio-total');
+            const linkWsp = document.getElementById('link-whatsapp');
             
-            if (servicioIndex === "" || !opcionesServicios[dispositivo] || !opcionesServicios[dispositivo][servicioIndex]) {
-                precioTxt.textContent = "$0";
-                wsLink.href = "#";
-                return;
-            }
+            const precio = selectServicio.value || "0";
+            precioBox.textContent = `$${precio}`;
 
-            const servicioSeleccionado = opcionesServicios[dispositivo][servicioIndex];
-            const precio = servicioSeleccionado.precio;
-            
-            precioTxt.textContent = `$${precio}`;
+            const dispTexto = document.getElementById('dispositivo').options[document.getElementById('dispositivo').selectedIndex].text;
+            const servTexto = selectServicio.options[selectServicio.selectedIndex]?.text || "";
 
-            const nombreDispositivo = dispSelect.options[dispSelect.selectedIndex].text;
-            const nombreServicio = servicioSeleccionado.nombre;
-            const nroTelefono = "+541127204632";
-            
-            const mensaje = encodeURIComponent(
-                `¡Hola! Vi tu web y me gustaría coordinar un turno.\n\n` +
-                `*Equipo:* ${nombreDispositivo}\n` +
-                `*Trabajo:* ${nombreServicio}\n` +
-                `*Mano de obra aprox:* $${precio}\n\n` +
-                `Quedo atento para saber el costo de los repuestos si corresponden.`
-            );
-
-            wsLink.href = `https://wa.me/${nroTelefono}?text=${mensaje}`;
+            const mensaje = encodeURIComponent(`¡Hola! Quisiera consultar/turnar para mi equipo: ${dispTexto}. Servicio deseado: ${servTexto}.`);
+            linkWsp.href = `https://wa.me/+541127204632?text=${mensaje}`;
         }
 
-        // Inicializar servicios
+        // Inicializar opciones al cargar la página
         actualizarServicios();
     </script>
 </body>
